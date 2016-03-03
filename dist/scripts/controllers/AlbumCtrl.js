@@ -1,10 +1,10 @@
 (function() {
-   function AlbumCtrl() {
-     this.albumData = angular.copy(albumPicasso);
+   function AlbumCtrl($scope) {
+     this.albumData = angular.copy(albumPicasso)
+ 
      }
-  
 
    angular
        .module('blocJams')
-       .controller('AlbumCtrl', AlbumCtrl);
+       .controller('AlbumCtrl', ['$scope', AlbumCtrl]);
 })();
