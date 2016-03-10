@@ -79,7 +79,7 @@
           
           } else if (SongPlayer.currentSong === song) {
             if (currentBuzzObject.isPaused()) {
-              currentBuzzObject.play();
+              playSong(song);
             }
           }
         };
@@ -112,7 +112,7 @@
           var currentSongIndex = getSongIndex(SongPlayer.currentSong);
           currentSongIndex++;
 
-        if (currentSongIndex > currentAlbum.songs.length) {
+        if (currentSongIndex >= currentAlbum.songs.length) {
          stopSong();
          } else {
          var song = currentAlbum.songs[currentSongIndex];
