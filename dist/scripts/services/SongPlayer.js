@@ -71,6 +71,12 @@
          */
           SongPlayer.currentSong = null;
 
+         /**
+         * @desc Current playback time (in seconds) of currently playing song
+         * @type {Number}
+         */
+          SongPlayer.currentTime = null;
+
           SongPlayer.play = function(song) {
             song = song || SongPlayer.currentSong;
            if (SongPlayer.currentSong !== song) {
