@@ -18,8 +18,8 @@
         onChange: '&'
       },
       link: function(scope, element, attributes) {
-        scope.value = 0;
         scope.max = 100;
+        scope.value = 0;
 
         var seekBar = $(element);
 
@@ -33,7 +33,7 @@
 
         var percentString = function() {
           var value = scope.value;
-          var max = scope.max
+          var max = scope.max;
           var percent = value / max * 100;
           return percent + "%";
         };
@@ -71,6 +71,8 @@
          var notifyOnChange = function(newValue) {
            scope.onChange({value: newValue});
          };
+
+         notifyOnChange(scope.value);
        }
      }
     }

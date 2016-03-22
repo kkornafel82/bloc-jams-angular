@@ -28,7 +28,7 @@
             return currentAlbum.songs.indexOf(song);
           };
            
-                     /**
+           /**
            * @function stopSong
            * @desc Stops currently playing song and sets currently playing song to null
            * @param {Object} song
@@ -54,7 +54,8 @@
               preload: true
             }); 
 
-            SongPlayer.setVolume(50); 
+            SongPlayer.setVolume(SongPlayer.volume);
+ 
 
             currentBuzzObject.bind('timeupdate', function() {
               $rootScope.$apply(function() {
@@ -89,7 +90,7 @@
           * @desc SongPlayer volume
           * @type {Number}
           */
-          SongPlayer.volume = 0;
+          SongPlayer.volume = 50;
           SongPlayer.maxVolume = 100;
 
           SongPlayer.play = function(song) {
@@ -98,7 +99,10 @@
              setSong(song);  
              playSong(song);
           
-          } else if (SongPlayer.currentSong === song) {
+          } else if (song === null) {
+            SongPlayer.next();
+
+          }else if (SongPlayer.currentSong === song) {
             if (currentBuzzObject.isPaused()) {
               playSong(song);
             }
